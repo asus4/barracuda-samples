@@ -54,7 +54,7 @@ public class Mnist : MonoBehaviour
 
     void OnDestroy()
     {
-        worker.Dispose();
+        worker?.Dispose();
         inputTex?.Release();
 
         Destroy(lineMesh);
@@ -137,6 +137,8 @@ public class Mnist : MonoBehaviour
         sb.AppendLine($"execute time: {stopwatch.ElapsedMilliseconds} msec");
 
         outputTextView.text = sb.ToString();
+
+        output.Dispose();
 
         isProcessing = false;
     }
