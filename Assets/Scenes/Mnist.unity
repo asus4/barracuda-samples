@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076ce3319586848b18aa92bfad8f7763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mnistPath: classify_mnist_graph_def.nn
+  nnModel: {fileID: 5022602860645237092, guid: 277511fbcbb924bb6ab687bbefae4f4d, type: 3}
   inputImageView: {fileID: 302376003}
   outputTextView: {fileID: 279395323}
   workerType: 256

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Mnist : MonoBehaviour
 {
-    [SerializeField] string mnistPath = "classify_mnist_graph_def.nn";
+    [SerializeField] Barracuda.NNModel nnModel = null;
     [SerializeField] RawImage inputImageView = null;
     [SerializeField] Text outputTextView = null;
     [SerializeField] Barracuda.BarracudaWorkerFactory.Type workerType = Barracuda.BarracudaWorkerFactory.Type.ComputePrecompiled;
@@ -26,7 +26,7 @@ public class Mnist : MonoBehaviour
     void Start()
     {
         // Init model
-        var model = Barracuda.ModelLoader.LoadFromStreamingAssets(mnistPath, true);
+        var model = Barracuda.ModelLoader.Load(this.nnModel, true);
         Debug.Log(model);
 
         worker = Barracuda.BarracudaWorkerFactory.CreateWorker(workerType, model, false);
