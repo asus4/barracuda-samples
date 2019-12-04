@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 14063475}
   - component: {fileID: 14063474}
   m_Layer: 0
-  m_Name: Mnist
+  m_Name: Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nnModel: {fileID: 5022602860645237092, guid: 277511fbcbb924bb6ab687bbefae4f4d, type: 3}
-  inputImageView: {fileID: 302376003}
   outputTextView: {fileID: 279395323}
   workerType: 256
 --- !u!4 &14063475
@@ -322,6 +321,7 @@ GameObject:
   - component: {fileID: 302376004}
   - component: {fileID: 302376003}
   - component: {fileID: 302376005}
+  - component: {fileID: 302376006}
   m_Layer: 5
   m_Name: InputTexture
   m_TagString: Untagged
@@ -393,22 +393,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 5
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 14063474}
-          m_MethodName: OnDrag
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_Delegates: []
+--- !u!114 &302376006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302376001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd08f17c0da1f4e3482d32725dfa5a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageDimention: {x: 28, y: 28}
+  paintColor: {r: 1, g: 1, b: 1, a: 1}
+  format: 16
+  OnDraw:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 14063474}
+        m_MethodName: Execute
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &640733537
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,8 +766,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14063474}
-        m_MethodName: ClearInput
+      - m_Target: {fileID: 302376006}
+        m_MethodName: ClearTexture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
