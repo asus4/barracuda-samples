@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.barracuda": "0.3.2-preview",
     "com.unity.ext.nunit": "1.0.0",
     "com.unity.ide.vscode": "1.1.3",

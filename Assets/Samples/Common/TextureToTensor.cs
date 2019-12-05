@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 namespace BarracudaSample
 {
@@ -24,10 +25,8 @@ namespace BarracudaSample
             public AspectMode aspectMode;
         }
 
-        RenderTexture resizeTexture;
+        public RenderTexture resizeTexture { get; private set; }
         Material transfromMat;
-
-        public Material material => transfromMat;
 
         static readonly int _VertTransform = Shader.PropertyToID("_VertTransform");
         static readonly int _UVRect = Shader.PropertyToID("_UVRect");
@@ -47,7 +46,7 @@ namespace BarracudaSample
             || resizeTexture.height != options.height)
             {
                 TryDispose(resizeTexture);
-                resizeTexture = new RenderTexture(options.width, options.height, 0, RenderTextureFormat.ARGB32);
+                resizeTexture = new RenderTexture(options.width, options.height, 0, GraphicsFormat.R16G16B16A16_SFloat);
             }
             if (transfromMat == null)
             {

@@ -414,6 +414,10 @@ MonoBehaviour:
   nnModel: {fileID: 5022602860645237092, guid: 435499b7319844a9f9c727f5e6d3478c, type: 3}
   workerType: 256
   cameraView: {fileID: 2138782806}
+  framePrefab: {fileID: 3741480705651698942, guid: 5c967d598bc9b4ae2996538cb93a4d78,
+    type: 3}
+  scoreThreshold: 0.2
+  labelsText: {fileID: 4900000, guid: e4ad4365b0a3743149d1e83663fdf940, type: 3}
 --- !u!1 &2138782804
 GameObject:
   m_ObjectHideFlags: 0
